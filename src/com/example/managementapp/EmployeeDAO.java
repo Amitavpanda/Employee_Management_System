@@ -4,7 +4,7 @@ public interface EmployeeDAO {
 	
 	
 //	create employees
-	public void createEmployee();
+	public void createEmployee(Employee emp);
 	
 //	show all employees 
 	public void showAllEmployees();

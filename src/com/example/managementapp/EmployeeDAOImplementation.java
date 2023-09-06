@@ -1,10 +1,34 @@
 package com.example.managementapp;
 
-public class EmployeeDAOImplementation implements EmployeeDAO {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
+public class EmployeeDAOImplementation implements EmployeeDAO {
+	Connection con;
+	
 	@Override
-	public void createEmployee() {
-		// TODO Auto-generated method stub
+	public void createEmployee(Employee emp) {
+		
+		con = DBConnection.createDBConnection();
+		String query = "insert into employee values(?,?,?,?)";
+		
+		
+		
+		try {
+			PreparedStatement ptsm = con.prepareStatement(query);
+			ptsm.setInt(1,emp.getId());
+			ptsm.setString(2,emp.getName());
+			ptsm.setDouble(3, emp.getSalary());
+			ptsm.setInt(4,emp.getAge());
+			
+			int cnt = ptsm.executeUpdate();
+			if(cnt!=0) System.out.println("Employee Inserted Successfully");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
