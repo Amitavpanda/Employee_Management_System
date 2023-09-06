@@ -22,7 +22,21 @@ public class EmployeeMain {
 			
 			switch(ch) {
 				case 1:	
-					dao.createEmployee();
+					Employee emp = new Employee();
+					System.out.println("Enter id");
+					int id = sc.nextInt();
+					System.out.println("Enter name");
+					String name = sc.next();
+					System.out.println("Enter salary");
+					double salary = sc.nextDouble();
+					System.out.println("Enter age");
+					int age = sc.nextInt();
+					
+					emp.setId(id);
+					emp.setName(name);
+					emp.setSalary(salary);
+					emp.setAge(age);
+					dao.createEmployee(emp);
 					break;
 				case 2:
 					System.out.println("Thanks for using our application");

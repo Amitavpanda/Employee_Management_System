@@ -6,12 +6,19 @@ public class Employee {
 	private double salary;
 	private int age;
 	
+	
+
+	
 	public Employee(int id, String name, double salary, int age) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
 		this.age = age;
+	}
+
+	public Employee() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {

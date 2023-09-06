@@ -8,7 +8,7 @@ public class DBConnection {
 	 public static Connection createDBConnection() {
 		 
 		 try {
-			 Class.forName("com.mysql.jdbc.Driver");
+			 Class.forName("com.mysql.cj.jdbc.Driver");
 			 
 			 String url = "jdbc:mysql://localhost:3306/employeeDB";
 			 String username = "root";
