@@ -2,7 +2,9 @@ package com.example.managementapp;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class EmployeeDAOImplementation implements EmployeeDAO {
 	Connection con;
@@ -34,8 +36,26 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 
 	@Override
 	public void showAllEmployees() {
-		// TODO Auto-generated method stub
-		
+		con = DBConnection.createDBConnection();
+		String query = "select * from employee";
+		System.out.println("Employee Details");
+		System.out.println("----------------------------------");
+		System.out.format("%s\t%s\t%s\t%s\n","ID","Name","Salary","Age");
+		System.out.println("----------------------------------");
+		try {
+			Statement stm = con.createStatement();
+			ResultSet result = stm.executeQuery(query);
+			
+			while(result.next()) {
+				System.out.format("%d\t%s\t%f\t%d\n", result.getInt(1),
+						result.getString(2),
+						result.getDouble(3),
+						result.getInt(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
