@@ -38,7 +38,10 @@ public class EmployeeMain {
 					emp.setAge(age);
 					dao.createEmployee(emp);
 					break;
-				case 2:
+				case 2 :
+					dao.showAllEmployees();
+					break;
+				case 6:
 					System.out.println("Thanks for using our application");
 					System.exit(0);
 				default:
