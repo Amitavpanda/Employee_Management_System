@@ -57,6 +57,12 @@ public class EmployeeMain {
 					name = sc.next();
 					dao.updateEmployee(id, name);
 					break;
+				case 5:
+					System.out.println("Enter the id of the employee you want to delete");
+					id = sc.nextInt();
+					dao.deleteEmployee(id);
+					break;
+					
 				case 6:
 					System.out.println("Thanks for using our application");
 					System.exit(0);
