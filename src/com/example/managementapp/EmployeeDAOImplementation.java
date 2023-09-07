@@ -105,7 +105,19 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 
 	@Override
 	public void deleteEmployee(int id) {
-		// TODO Auto-generated method stub
+		con = DBConnection.createDBConnection();
+		String query = "delete from employee where id=?";
+		
+		try {
+			PreparedStatement pstm = con.prepareStatement(query);
+			pstm.setInt(1, id);
+			int count = pstm.executeUpdate();
+			if(count!=0) System.out.println("Employee deleted sucessfully");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
