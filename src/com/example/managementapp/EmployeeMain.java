@@ -41,6 +41,11 @@ public class EmployeeMain {
 				case 2 :
 					dao.showAllEmployees();
 					break;
+				case 3 : 
+					System.out.println("Enter Id to get the employee details");
+					int empid = sc.nextInt();
+					dao.showEmployeeBasedOnId(empid);
+					break;
 				case 6:
 					System.out.println("Thanks for using our application");
 					System.exit(0);

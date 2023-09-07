@@ -59,8 +59,29 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 	}
 
 	@Override
-	public void showEmployeeBasedOnId() {
-		// TODO Auto-generated method stub
+	public void showEmployeeBasedOnId(int id ) {
+		con = DBConnection.createDBConnection();
+		String query = "select * from employee where id ="+id;
+		System.out.println("Employee Details based on ID");
+		System.out.println("----------------------------------");
+		System.out.format("%s\t%s\t%s\t%s\n","ID","Name","Salary","Age");
+		System.out.println("----------------------------------");
+		try {
+			Statement stm = con.createStatement();
+			ResultSet result = stm.executeQuery(query);
+			while(result.next()) {
+				System.out.format("%d\t%s\t%f\t%d\n", result.getInt(1),
+						result.getString(2),
+						result.getDouble(3),
+						result.getInt(4));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 

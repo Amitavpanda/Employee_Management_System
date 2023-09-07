@@ -10,7 +10,7 @@ public interface EmployeeDAO {
 	public void showAllEmployees();
 	
 //	show employee based on id
-	public void showEmployeeBasedOnId();
+	public void showEmployeeBasedOnId(int id);
 	
 	
 //  update employee
