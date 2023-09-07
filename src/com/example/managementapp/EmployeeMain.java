@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class EmployeeMain {
 
 	public static void main(String[] args) {
+		String name;
+		int id;
 		EmployeeDAO dao = new EmployeeDAOImplementation();
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Employee Management Application");
@@ -15,7 +17,8 @@ public class EmployeeMain {
 					"2. Show All Employee\n" +
 					"3. Show Employee based on id \n" +
 					"4. Update the employee\n" +
-					"5. Delet the employee\n");
+					"5. Delete the employee\n"+
+					"6. Close the application");
 			
 			System.out.println("Enter the choice");
 			int ch = sc.nextInt();
@@ -24,9 +27,9 @@ public class EmployeeMain {
 				case 1:	
 					Employee emp = new Employee();
 					System.out.println("Enter id");
-					int id = sc.nextInt();
+					id = sc.nextInt();
 					System.out.println("Enter name");
-					String name = sc.next();
+					name = sc.next();
 					System.out.println("Enter salary");
 					double salary = sc.nextDouble();
 					System.out.println("Enter age");
@@ -45,6 +48,14 @@ public class EmployeeMain {
 					System.out.println("Enter Id to get the employee details");
 					int empid = sc.nextInt();
 					dao.showEmployeeBasedOnId(empid);
+					break;
+				case 4:
+					System.out.println("Enter the id to update the employee details");
+					System.out.println("Enter the id");
+					id = sc.nextInt();
+					System.out.println("enter the new name");
+					name = sc.next();
+					dao.updateEmployee(id, name);
 					break;
 				case 6:
 					System.out.println("Thanks for using our application");
